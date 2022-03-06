@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "the-first-title",
+      "author": "some author"
+    },
+    {
+      "id": 2,
+      "title": "this-is-a-title",
+      "author": "Lorem ipsum dolor sit amet"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "someuser"
+  }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios - Demo</title>
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <H1>Hello World</H1>
+    <div>
+        <button>Send GET request</button>
+        <button>Send POST request</button>
+        <button>Send PUT request</button>
+        <button>Send DELETE request</button>
+    </div>
+    <script>
+        // check if axios is working
+        console.log('axios:', axios);
+
+        // get DOM elements
+        const btns = document.querySelectorAll('button');
+
+        // request data (GET)
+        btns[0].onclick = function () {
+            // send Ajax request
+            axios({
+                // request method
+                method: 'GET',
+                url: 'http://localhost:3000/posts'
+
+                // no request payload
+
+            }).then(res => {
+                console.log('GET response: ', res.data);
+                // output: GET response:  (2) [{…}, {…}]
+            });
+        };
+
+        //  send data (POST)
+        btns[1].onclick = function () {
+            // send Ajax request
+            axios({
+                // request method
+                method: 'POST',
+                url: 'http://localhost:3000/posts',
+
+                //  request payload
+                data: {
+                    title: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, voluptatibus.",
+                    author: "Lorem"
+                }
+            }).then(res => {
+                console.log("POST response: ", res);
+                // output: POST response:  {data: {…}, status: 201, statusText: 'Created', headers: {…}, config: {…}, …}
+            });
+        };
+
+        //  update data (PUT)
+        btns[2].onclick = function () {
+            // send Ajax request
+            axios({
+                // request method
+                method: 'PUT',
+                url: 'http://localhost:3000/posts/3', // target resource
+
+                // request payload
+                // post/2's article will be replaced by this new data 
+                data: {
+                    title: "A New Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, voluptatibus.",
+                    author: "New Lorem"
+                }
+
+            }).then(res => {
+                console.log("PUT response: ", res);
+                // output: PUT response:  {data: {…}, status: 200, statusText: 'OK', headers: {…}, config: {…}, …}
+            });
+        };
+
+        //  delete data (DELETE)
+        btns[3].onclick = function () {
+            // send Ajax request
+            axios({
+                // request method
+                method: 'DELETE',
+                url: 'http://localhost:3000/posts/2',
+
+                // no request payload
+
+            }).then(res => {
+                console.log("DELETE response: ", res);
+                // output: DELETE response:  {data: {…}, status: 200, statusText: 'OK', headers: {…}, config: {…}, …}
+            });
+        };
+
+
+    </script>
+</body>
+
+</html>
