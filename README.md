@@ -10,12 +10,12 @@ Docs: https://axios-http.com/docs/
 
 `npm install axios`
 
-### include it in the html header
+### Include it in the html header
 
 `<script src="./node_modules/axios/dist/axios.min.js"></script>`
 
 
-## json-server
+## JSON Server
 Get a full fake REST API with zero coding.
 
 Github: https://github.com/typicode/json-server
